@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,29 +11,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Cyclone Prediction",
-      theme:ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
     );
   }
 }
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-class _HomePageState extends State<HomePage>{
+
+class _HomePageState extends State<HomePage> {
   String _selectedDate = '';
   String _dateCount = '';
   String _range = '';
   String _rangeCount = '';
 
   void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-
     setState(() {
       if (args.value is PickerDateRange) {
         _range = '${DateFormat('dd/MM/yyyy').format(args.value.startDate)} -'
-        // ignore: lines_longer_than_80_chars
             ' ${DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate)}';
       } else if (args.value is DateTime) {
         _selectedDate = args.value.toString();
@@ -50,17 +49,11 @@ class _HomePageState extends State<HomePage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-            "Cyclone Prediction"
-        ),
+        title: const Text("Cyclone Prediction"),
         centerTitle: true,
       ),
-      body:Center(
-
-
-
+      body: Center(
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RichText(
@@ -68,175 +61,184 @@ class _HomePageState extends State<HomePage>{
                 text: 'Satellite :',
                 style: DefaultTextStyle.of(context).style,
                 children: const <TextSpan>[
-                  TextSpan(text: 'INSAT 3D-IMAGER', style: TextStyle(fontWeight: FontWeight.bold, )),
+                  TextSpan(
+                      text: 'INSAT 3D-IMAGER',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
                 ],
               ),
             ),
-            Padding(padding: const EdgeInsets.all(5.0),
-
+            Padding(
+              padding: const EdgeInsets.all(5.0),
               child: DropdownButton<String>(
-                items:  [
+                items: [
                   DropdownMenuItem<String>(
-                    value:"1",
+                    value: "1",
                     child: Center(
-                      child:Text("Full Disk"),
+                      child: Text("Full Disk"),
                     ),
                   ),
                   DropdownMenuItem<String>(
-                    value:"2",
+                    value: "2",
                     child: Center(
-                      child:Text("Asia Sector"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"3",
-                    child: Center(
-                      child:Text("Asia Sector High Resolution"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"4",
-                    child: Center(
-                      child:Text("Bay Of Bengal"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"5",
-                    child: Center(
-                      child:Text("Arabian Sea"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"6",
-                    child: Center(
-                      child:Text("Aviation Sector"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"7",
-                    child: Center(
-                      child:Text("Pilgrimage"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"8",
-                    child: Center(
-                      child:Text("Geophysical Products"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"9",
-                    child: Center(
-                      child:Text("Wind Derived Products"),
-                    ),),
-
-                  DropdownMenuItem<String>(
-                    value:"10",
-                    child: Center(
-                      child:Text("Atomsphric Motion Vector"),
-                    ),),
-
-                  DropdownMenuItem<String>(
-                    value:"11",
-                    child: Center(
-                      child:Text("Binned Daily"),
+                      child: Text("Asia Sector"),
                     ),
                   ),
                   DropdownMenuItem<String>(
-                    value:"12",
+                    value: "3",
                     child: Center(
-                      child:Text("Binned Weekly"),
+                      child: Text("Asia Sector High Resolution"),
                     ),
                   ),
                   DropdownMenuItem<String>(
-                    value:"13",
+                    value: "4",
                     child: Center(
-                      child:Text("Binned Monthly"),
+                      child: Text("Bay Of Bengal"),
                     ),
                   ),
-
+                  DropdownMenuItem<String>(
+                    value: "5",
+                    child: Center(
+                      child: Text("Arabian Sea"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "6",
+                    child: Center(
+                      child: Text("Aviation Sector"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "7",
+                    child: Center(
+                      child: Text("Pilgrimage"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "8",
+                    child: Center(
+                      child: Text("Geophysical Products"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "9",
+                    child: Center(
+                      child: Text("Wind Derived Products"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "10",
+                    child: Center(
+                      child: Text("Atomsphric Motion Vector"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "11",
+                    child: Center(
+                      child: Text("Binned Daily"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "12",
+                    child: Center(
+                      child: Text("Binned Weekly"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "13",
+                    child: Center(
+                      child: Text("Binned Monthly"),
+                    ),
+                  ),
                 ],
-                onChanged:(_value)=>{
+                onChanged: (_value) => {
                   print(_value.toString()),
-
                 },
-                hint:Text(
-                    "Select the product"
-                ),
+                hint: Text("Select the product"),
               ),
             ),
-            Padding(padding: const EdgeInsets.all(5.0),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
               child: DropdownButton<String>(
-                items:  [
+                items: [
                   DropdownMenuItem<String>(
-                    value:"1",
+                    value: "1",
                     child: Center(
-                      child:Text("OLR Weekly"),
+                      child: Text("OLR Weekly"),
                     ),
                   ),
                   DropdownMenuItem<String>(
-                    value:"2",
+                    value: "2",
                     child: Center(
-                      child:Text("SST Weekly (since Feb 2021)"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"3",
-                    child: Center(
-                      child:Text("SST Weekly"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"4",
-                    child: Center(
-                      child:Text("UTH Weekly"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"5",
-                    child: Center(
-                      child:Text("HEM Weekly"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"6",
-                    child: Center(
-                      child:Text("GPI Weekly"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"7",
-                    child: Center(
-                      child:Text("IMR Weekly"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"8",
-                    child: Center(
-                      child:Text("IMC Weekly"),
-                    ),),
-                  DropdownMenuItem<String>(
-                    value:"9",
-                    child: Center(
-                      child:Text("MIR_TEMP_WEEKLY"),
-                    ),),
-
-                  DropdownMenuItem<String>(
-                    value:"10",
-                    child: Center(
-                      child:Text("WV__TEMP_WEEKLY"),
-                    ),),
-
-                  DropdownMenuItem<String>(
-                    value:"11",
-                    child: Center(
-                      child:Text("IR1_TEMP_WEEKLY"),
+                      child: Text("SST Weekly (since Feb 2021)"),
                     ),
                   ),
                   DropdownMenuItem<String>(
-                    value:"12",
+                    value: "3",
                     child: Center(
-                      child:Text("IR2_TEMP_WEEKLY"),
+                      child: Text("SST Weekly"),
                     ),
                   ),
-
-
-
+                  DropdownMenuItem<String>(
+                    value: "4",
+                    child: Center(
+                      child: Text("UTH Weekly"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "5",
+                    child: Center(
+                      child: Text("HEM Weekly"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "6",
+                    child: Center(
+                      child: Text("GPI Weekly"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "7",
+                    child: Center(
+                      child: Text("IMR Weekly"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "8",
+                    child: Center(
+                      child: Text("IMC Weekly"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "9",
+                    child: Center(
+                      child: Text("MIR_TEMP_WEEKLY"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "10",
+                    child: Center(
+                      child: Text("WV__TEMP_WEEKLY"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "11",
+                    child: Center(
+                      child: Text("IR1_TEMP_WEEKLY"),
+                    ),
+                  ),
+                  DropdownMenuItem<String>(
+                    value: "12",
+                    child: Center(
+                      child: Text("IR2_TEMP_WEEKLY"),
+                    ),
+                  ),
                 ],
-                onChanged:(_value)=>{
+                onChanged: (_value) => {
                   print(_value.toString()),
-
                 },
-                hint:Text(
-                    "Select the Layer"
-                ),
+                hint: Text("Select the Layer"),
               ),
             ),
             Stack(
@@ -258,7 +260,6 @@ class _HomePageState extends State<HomePage>{
                     ],
                   ),
                 ),
-
                 Positioned(
                   left: 0,
                   top: 80,
@@ -273,23 +274,10 @@ class _HomePageState extends State<HomePage>{
                   ),
                 )
               ],
-
-
-
-
             ),
-
           ],
         ),
       ),
-
-
-
     );
-
-
-
   }
 }
-
-

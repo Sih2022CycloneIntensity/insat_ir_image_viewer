@@ -16,6 +16,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   late String _dateCount;
   late String _range;
+  late DateTime _startDate ;
+  late DateTime _endDate ;
   void initState() {
     _dateCount = '';
     _range = 'Empty';
@@ -26,12 +28,18 @@ class _MyAppState extends State<MyApp> {
     void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
       setState(() {
         if (args.value is PickerDateRange) {
+          // _startDate=DateFormat('dd/MM/yyyy').format(args.value.startDate) as DateFormat;
+          // _endDate = DateFormat('dd/MM/yyyy').format(args.value.endDate) as DateFormat;
+          _startDate= args.value.startDate;
+          _endDate = args.value.endDate;
           _range =
               DateFormat('dd/MM/yyyy').format(args.value.startDate).toString() +
                   ' - ' +
                   DateFormat('dd/MM/yyyy')
                       .format(args.value.endDate ?? args.value.startDate)
                       .toString();
+          print('start date : $_startDate');
+          print('end date : $_endDate');
         } else if (args.value is DateTime) {
         } else if (args.value is List<DateTime>) {
           _dateCount = args.value.length.toString();
