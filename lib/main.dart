@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:insat_ir_image_viewer/movable_card.dart';
+import 'package:insat_ir_image_viewer/navbar.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -29,10 +30,6 @@ class HomePage extends StatefulWidget {
 
 
 class _HomePageState extends State<HomePage> {
-  UpdatePicture() {
-
-
-  }
   late Timer timer;
   Image curImg = Image.asset('images/image.jpg',fit: BoxFit.cover);
   void loadData() async{
@@ -46,8 +43,10 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     timer = Timer.periodic(const Duration(minutes: 30), (Timer t) => loadData());
   }
+
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavBar(),
       appBar: AppBar(
         title: Text('Cyclone Prediction'),
       ),

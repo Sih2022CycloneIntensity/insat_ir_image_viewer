@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 
 class MovableStackItem extends StatefulWidget {
   @override
-  _MovableStackItemState createState() =>
-      _MovableStackItemState(color: Colors.red);
+  _MovableStackItemState createState() => _MovableStackItemState();
 }
 
 class _MovableStackItemState extends State<MovableStackItem> {
   double _xPosition = 25;
   double _yPosition = 50;
-  final Color color;
-
-  _MovableStackItemState({required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +30,11 @@ class _MovableStackItemState extends State<MovableStackItem> {
                 const ListTile(
                   title: Text("Date and time : "),
                 ),
+                ListTile(
+                  title: Text("Category : "),
+                ),
                 ElevatedButton(onPressed: (){
-                  setState(() {
-
-                  });
+                  setState(() {});
                 }, child: Text('Refresh'))
               ],
             ),
