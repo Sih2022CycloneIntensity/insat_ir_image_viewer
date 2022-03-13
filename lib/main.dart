@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:insat_ir_image_viewer/movable_card.dart';
-import 'package:insat_ir_image_viewer/navbar.dart';
 import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
