@@ -61,13 +61,14 @@ class _HomePageState extends State<HomePage> {
     // final Uint8List bytes = imageData.buffer.asUint8List();
     // curImg = Image.memory(bytes,fit: BoxFit.cover,);
     setState(() {
-      curImg=Image.memory(base64Decode(imageStr),fit: BoxFit.cover,);
+      curImg=Image.memory(base64Decode(imageStr),fit: BoxFit.contain,);
       category = jsonDecode(data)["cat"].toString();
     });
   }
   @override
   void initState() {
     super.initState();
+    loadData();
     timer = Timer.periodic(const Duration(minutes: 30), (Timer t) => loadData());
   }
 
