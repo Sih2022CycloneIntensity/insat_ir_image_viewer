@@ -30,15 +30,28 @@ class _MovableStackItemState extends State<MovableStackItem> {
           child: Card(
             child: Column(
               children: [
-                 ListTile(
-                  title: Text("Date and time : ${widget.curTime}"),
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: ListTile(
+                    title: Text("Date and time : ${widget.curTime}"),
                 ),
-                ListTile(
-                  title: Text("Category : ${widget.category}"),
+                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListTile(
+                    title: Text("Category : ${widget.category}"),
+                  ),
                 ),
-                ElevatedButton(onPressed: (){
-                  setState(() {});
-                }, child: Text('Refresh'))
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+
+                    });
+                  },
+                  child: Text('Refresh'),
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(20, 10), primary: Colors.deepOrange),
+                )
               ],
             ),
             elevation: 8,
@@ -50,3 +63,4 @@ class _MovableStackItemState extends State<MovableStackItem> {
     );
   }
 }
+
