@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           //list if widget in appbar actions
           PopupMenuButton(
-            icon: Icon(Icons.more_vert),  //don't specify icon if you want 3 dot menu
+            icon: Icon(Icons.more_vert),
             color: Colors.black26,
             itemBuilder: (context) => [
               PopupMenuItem<int>(
@@ -96,9 +96,16 @@ class _HomePageState extends State<HomePage> {
               PopupMenuItem<int>(
                 value:1,
               child: Text("Categories",style: TextStyle(color: Colors.white),),
+
               ),
             ],
-            onSelected: (item) => {print(item)},
+            onSelected: (item) => {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Category()),
+            ),
+            },
+
           ),
         ],
       ),
@@ -112,6 +119,26 @@ class _HomePageState extends State<HomePage> {
               curTime: getTime(),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+class Category extends StatelessWidget {
+  const Category({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Category'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Back to Home'),
         ),
       ),
     );
