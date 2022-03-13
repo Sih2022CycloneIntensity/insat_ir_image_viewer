@@ -68,22 +68,34 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
       appBar: AppBar(
         centerTitle: true,
+        title: Text("Cyclone Prediction"),
         actions: [
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: Icon(
-                  Icons.refresh,
-                  size: 26.0,
-                ),
+          //list if widget in appbar actions
+          PopupMenuButton(
+            icon: Icon(Icons.menu),  //don't specify icon if you want 3 dot menu
+            color: Colors.black26,
+            itemBuilder: (context) => [
+              PopupMenuItem<int>(
+                value: 0,
+                child: Text("About",style: TextStyle(color: Colors.white),),
               ),
+            ],
+            onSelected: (item) => {print(item)},
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () {},
+              child: Icon(
+                Icons.refresh,
+                size: 26.0,
+              ),
+            ),
           ),
         ],
-        title: Text('Cyclone Prediction'),
       ),
       body: Container(
         child: Stack(
