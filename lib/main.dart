@@ -100,6 +100,8 @@ class _HomePageState extends State<HomePage> {
             ],
             onSelected: (item) => {
             Navigator.push(
+
+
             context,
             MaterialPageRoute(builder: (context) => const Category()),
             ),
@@ -120,6 +122,10 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+
+
+
+
     );
   }
 }
@@ -133,13 +139,21 @@ class Category extends StatelessWidget {
         title: const Text('Category'),
       ),
       body: Center(
-        child: ElevatedButton(
+
+        child:Image(
+          image: AssetImage('asset/Category.png'),
+        ),
+      ),
+
+        floatingActionButton:ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
           child: const Text('Back to Home'),
         ),
-      ),
+
+
+
     );
   }
 }
