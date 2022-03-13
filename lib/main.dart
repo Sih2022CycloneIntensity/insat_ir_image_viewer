@@ -90,6 +90,12 @@ class _HomePageState extends State<HomePage> {
               PopupMenuItem<int>(
                 value: 0,
                 child: Text("About",style: TextStyle(color: Colors.white),),
+
+
+              ),
+              PopupMenuItem<int>(
+                value:1,
+              child: Text("Categories",style: TextStyle(color: Colors.white),),
               ),
             ],
             onSelected: (item) => {print(item)},
