@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:insat_ir_image_viewer/movable_card.dart';
+import 'package:insat_ir_image_viewer/movable_legend.dart';
 import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
@@ -62,7 +63,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     loadData();
-    timer = Timer.periodic(const Duration(minutes: 30), (Timer t) => loadData());
+    timer =
+        Timer.periodic(const Duration(minutes: 30), (Timer t) => loadData());
   }
 
   Widget build(BuildContext context) {
@@ -72,14 +74,19 @@ class _HomePageState extends State<HomePage> {
         leading: Padding(
           padding: EdgeInsets.only(right: 20.0),
           child: IconButton(
-            onPressed: () { loadData();},
-            icon:Icon(
+            onPressed: () {
+              loadData();
+            },
+            icon: Icon(
               Icons.refresh,
               size: 26.0,
             ),
           ),
         ),
-        title: Text("Cyclone Prediction"),
+        title: Image.asset(
+          'images/varuna.png',
+          fit: BoxFit.contain,
+        ),
         actions: [
           //list if widget in appbar actions
           PopupMenuButton(
@@ -88,25 +95,25 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (context) => [
               PopupMenuItem<int>(
                 value: 0,
-                child: Text("About",style: TextStyle(color: Colors.white),),
-
-
+                child: Text(
+                  "About",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
               PopupMenuItem<int>(
-                value:1,
-              child: Text("Categories",style: TextStyle(color: Colors.white),),
-
+                value: 1,
+                child: Text(
+                  "Categories",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
             onSelected: (item) => {
-            Navigator.push(
-
-
-            context,
-            MaterialPageRoute(builder: (context) => const Category()),
-            ),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Category()),
+              ),
             },
-
           ),
         ],
       ),
@@ -118,17 +125,15 @@ class _HomePageState extends State<HomePage> {
             MovableStackItem(
               category: category,
               curTime: getTime(),
-            )
+            ),
+            MovableLegend()
           ],
         ),
       ),
-
-
-
-
     );
   }
 }
+
 class Category extends StatelessWidget {
   const Category({Key? key}) : super(key: key);
 
@@ -139,23 +144,16 @@ class Category extends StatelessWidget {
         title: const Text('Category'),
       ),
       body: Center(
-
-        child:Image(
+        child: Image(
           image: AssetImage('asset/Category.png'),
         ),
       ),
-
-        floatingActionButton:ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Back to Home'),
-        ),
-
-
-
+      floatingActionButton: ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text('Back to Home'),
+      ),
     );
   }
 }
-
-

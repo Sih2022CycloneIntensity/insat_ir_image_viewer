@@ -10,7 +10,7 @@ class MovableStackItem extends StatefulWidget {
 
 class _MovableStackItemState extends State<MovableStackItem> {
   double _xPosition = 25;
-  double _yPosition = 50;
+  double _yPosition = 40;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _MovableStackItemState extends State<MovableStackItem> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text("Category : ${widget.category}"),
+                    title: Text("Type : ${widget.category}"),
                   ),
                 ),
               ],
