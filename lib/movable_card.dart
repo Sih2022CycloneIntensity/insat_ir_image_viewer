@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MovableStackItem extends StatefulWidget {
+   String curTime;
+   String category;
+  MovableStackItem({required this.curTime,required this.category});
   @override
   _MovableStackItemState createState() => _MovableStackItemState();
 }
@@ -27,11 +30,11 @@ class _MovableStackItemState extends State<MovableStackItem> {
           child: Card(
             child: Column(
               children: [
-                const ListTile(
-                  title: Text("Date and time : "),
+                 ListTile(
+                  title: Text("Date and time : ${widget.curTime}"),
                 ),
                 ListTile(
-                  title: Text("Category : "),
+                  title: Text("Category : ${widget.category}"),
                 ),
                 ElevatedButton(onPressed: (){
                   setState(() {});
