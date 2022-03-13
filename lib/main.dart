@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
   late Timer timer;
   String category = 'processing!';
   String getTime() {
-    DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('dd-MM-yyyy HH:mm:ss').format(now);
     return formattedDate;
@@ -78,10 +77,10 @@ class _HomePageState extends State<HomePage> {
               child: GestureDetector(
                 onTap: () {},
                 child: Icon(
-                  Icons.search,
+                  Icons.refresh,
                   size: 26.0,
                 ),
-              )
+              ),
           ),
         ],
         title: Text('Cyclone Prediction'),

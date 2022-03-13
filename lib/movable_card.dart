@@ -42,16 +42,6 @@ class _MovableStackItemState extends State<MovableStackItem> {
                     title: Text("Category : ${widget.category}"),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-
-                    });
-                  },
-                  child: Text('Refresh'),
-                  style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(20, 10), primary: Colors.deepOrange),
-                )
               ],
             ),
             elevation: 8,
